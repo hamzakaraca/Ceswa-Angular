@@ -18,8 +18,6 @@ export class NaviComponent implements OnInit {
     if (this.authService.loggedIn()) {
       this.ulogin=true
     }
-    
-
   }
   logOut(){
     this.authService.logout();

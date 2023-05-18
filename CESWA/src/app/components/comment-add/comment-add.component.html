@@ -1,1 +1,6 @@
-<p>comment-add works!</p>
+<div class="input-group input-group-sm mb-3">
+    <form [formGroup]="commentAddForm" action="">
+        <input formControlName="content" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+    </form>
+    <button (click)="add()">Yorumu kaydet</button>
+  </div>

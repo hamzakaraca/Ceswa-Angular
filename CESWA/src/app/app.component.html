@@ -1,10 +1,13 @@
-<div class="container">
+<div width="1000px" class="container">
   
-  <app-admin></app-admin>
+  
   <app-navi></app-navi>
   
   <div class="row"> 
-    
+      <div class="col-md-3" >
+        <app-company></app-company>
+        <app-admin></app-admin>
+      </div>
       <div class="col-md-9">
           <router-outlet></router-outlet>
       </div>

@@ -1,38 +1,38 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, firstValueFrom } from 'rxjs';
 import { ListResponseModel } from '../models/listResponseModel';
 import { HttpClient } from '@angular/common/http';
 import { ResponseModel } from '../models/responseModel';
 import { CommentAddModel } from '../models/commentAddModel';
 import { CommentUpdateModel } from '../models/commentUpdateModel';
 import { CompanyModel } from '../models/companyModel';
+import { environment } from 'src/environments/environment';
+import { CommentModel } from '../models/commentModel';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class CommentService {
-  constructor(private httpClient: HttpClient) {}
-  apiUrl = 'https://localhost:7187/comment/';
+  constructor(private httpClient: HttpClient,private toastrService:ToastrService) {
+  }
 
-  getAllComment(comments:Comment[]) {
+  apiUrl = `${environment.apiUrl}Comment/`;
+  
+  getAllComment(comments:CommentModel[]) {
     let newPath = this.apiUrl + 'getall';
-    return this.httpClient.get<ListResponseModel<Comment>>(newPath).subscribe(
-      (response) => {
-        response.data=comments
-        response.success;
-      },
-      (errorResponse) => {
-        console.log(errorResponse);
-      }
-    );
+    return this.httpClient.get<ListResponseModel<CommentModel>>(newPath)
   }
   addComment(comment: CommentAddModel) {
     let newPath = this.apiUrl + 'add';
     return this.httpClient.post<ResponseModel>(newPath, comment).subscribe(
       (response) => {
+        this.toastrService.success(response.message)
         response.success;
       },
       (errorResponse) => {
+        this.toastrService.error(errorResponse.error.message)
         console.log(errorResponse);
       }
     );
@@ -41,9 +41,11 @@ export class CommentService {
     let newPath = this.apiUrl + 'update';
     return this.httpClient.post<ResponseModel>(newPath, comment).subscribe(
       (response) => {
+        this.toastrService.success(response.message)
         response.success;
       },
       (errorResponse) => {
+        this.toastrService.error(errorResponse.error.message)
         console.log(errorResponse);
       }
     );
@@ -59,17 +61,17 @@ export class CommentService {
       }
     );
   }
+
+  async deleteCommentByYourself(id:number){
+    let newPath= this.apiUrl + "DeleteCommentByYourself"
+    let observable=this.httpClient.post(newPath,id)
+    await  firstValueFrom(observable)
+  }
+
   getByCompanyId(companyId: number) {
     let newPath = this.apiUrl + 'getbycompanyid?companyid=' + companyId;
     return this.httpClient
-      .get<ListResponseModel<CompanyModel>>(newPath)
-      .subscribe(
-        (response) => {
-          response.success;
-        },
-        (errorResponse) => {
-          console.log(errorResponse);
-        }
-      );
+      .get<ListResponseModel<CommentModel>>(newPath)
+      
   }
 }

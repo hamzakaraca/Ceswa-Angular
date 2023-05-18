@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { CompanyModel } from './models/companyModel';
+import { CompanyService } from './services/company.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +10,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'CESWA';
+  private companyService:CompanyService
+  constructor(private authService:AuthService){}
+  companies:CompanyModel[];
+  getCompany(){
+    this.companyService.getAll().subscribe(response=>{console.log(response.data)})
+  }
+  isAdmin(){
+    return this.authService.isAdmin();
+  }
 }

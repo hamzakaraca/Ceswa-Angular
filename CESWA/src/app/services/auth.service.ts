@@ -5,15 +5,18 @@ import { LoginModel } from '../models/loginModel';
 import { RegisterModel } from '../models/registerModel';
 import { SingleResponseModel } from '../models/singleResponseModel';
 import { TokenModel } from '../models/tokenModel';
+import { environment } from 'src/environments/environment';
+import { of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   jwtHelperService: JwtHelperService = new JwtHelperService();
-  apiUrl = 'https://localhost:7187/auth/';
+  apiUrl = `${environment.apiUrl}Auth/`;
   constructor(private httpClient: HttpClient) {}
 
+  
   login(loginModel: LoginModel) {
     let newPath = this.apiUrl + 'login';
     return this.httpClient.post<SingleResponseModel<TokenModel>>(
@@ -30,12 +33,20 @@ export class AuthService {
     }
   }
 
-  register(registerModel: RegisterModel) {
-    let newPath = this.apiUrl + 'register';
+  registerCorporate(registerModel: RegisterModel) {
+    let newPath = this.apiUrl + 'registercorporate';
     return this.httpClient.post<SingleResponseModel<TokenModel>>(
       newPath,
       registerModel
     );
+  }
+
+  registerIndividual(registerModel: RegisterModel) {
+    let newPath = this.apiUrl + 'registerindividual';
+     return this.httpClient.post<SingleResponseModel<TokenModel>>(
+       newPath,
+       registerModel
+     );
   }
 
   get getToken() {
@@ -43,7 +54,7 @@ export class AuthService {
   }
   get getDecodedToken() {
     let token = this.getToken;
-    return this.jwtHelperService.decodeToken(/*token*/);
+    return this.jwtHelperService.decodeToken(token);
   }
 
   get getCurrentUserId() {
