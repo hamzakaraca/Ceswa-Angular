@@ -4,27 +4,25 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-navi',
   templateUrl: './navi.component.html',
-  styleUrls: ['./navi.component.css']
+  styleUrls: ['./navi.component.css'],
 })
 export class NaviComponent implements OnInit {
-  ulogin=false;
-  constructor(private authService:AuthService) { }
+  ulogin = false;
+  constructor(private authService: AuthService) {}
   ngOnInit(): void {
     this.islogin();
-    
   }
-  
-  islogin(){
+
+  islogin() {
     if (this.authService.loggedIn()) {
-      this.ulogin=true
+      this.ulogin = true;
     }
   }
-  logOut(){
+  logOut() {
     this.authService.logout();
   }
-  
-  isAdmin(){
+
+  isAdmin() {
     return this.authService.isAdmin();
   }
-  
 }

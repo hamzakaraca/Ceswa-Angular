@@ -6,10 +6,9 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './individual-register.component.html',
-  styleUrls: ['./individual-register.component.css']
+  styleUrls: ['./individual-register.component.css'],
 })
-export class IndividualRegisterComponent implements OnInit{
-  
+export class IndividualRegisterComponent implements OnInit {
   registerForm: FormGroup;
   constructor(
     private authService: AuthService,
@@ -28,7 +27,7 @@ export class IndividualRegisterComponent implements OnInit{
       lastName: ['', Validators.required],
       email: ['', Validators.required],
       password: ['', Validators.required],
-      imagePath:["",]
+      imagePath: [''],
     });
   }
 
@@ -47,5 +46,4 @@ export class IndividualRegisterComponent implements OnInit{
       this.toastrService.error('Form hatalı', 'HATA!!!');
     }
   }
-
 }

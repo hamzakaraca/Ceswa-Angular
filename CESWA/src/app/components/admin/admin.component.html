@@ -1,1 +1,4 @@
-<div ><p >admin works!</p></div>
+<div *ngIf="isAdmin()"><p >
+    <button routerLink="comments">Yorumlar Listesi</button>
+    <button routerLink="users">Kullanıcıların Listesi</button>
+</p></div>

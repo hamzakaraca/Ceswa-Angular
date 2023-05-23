@@ -6,23 +6,27 @@ import { AuthService } from 'src/app/services/auth.service';
 @Component({
   selector: 'app-corporate-register',
   templateUrl: './corporate-register.component.html',
-  styleUrls: ['./corporate-register.component.css']
+  styleUrls: ['./corporate-register.component.css'],
 })
-export class CorporateRegisterComponent implements OnInit{
-  corporateRegisterForm:FormGroup
-  constructor(private authService:AuthService,private formBuilder:FormBuilder,private toastrService:ToastrService){}
+export class CorporateRegisterComponent implements OnInit {
+  corporateRegisterForm: FormGroup;
+  constructor(
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private toastrService: ToastrService
+  ) {}
   ngOnInit(): void {
     this.createCorporateRegisterForm();
   }
 
-  createCorporateRegisterForm(){
-    this.corporateRegisterForm=this.formBuilder.group({
-      companyName:["",Validators.required],
-      password:["",Validators.required],
-      email:["",Validators.required]
-    })
+  createCorporateRegisterForm() {
+    this.corporateRegisterForm = this.formBuilder.group({
+      companyName: ['', Validators.required],
+      password: ['', Validators.required],
+      email: ['', Validators.required],
+    });
   }
-  corporateRegister(){
+  corporateRegister() {
     if (this.corporateRegisterForm.valid) {
       let registerModel = Object.assign({}, this.corporateRegisterForm.value);
       this.authService.registerCorporate(registerModel).subscribe(

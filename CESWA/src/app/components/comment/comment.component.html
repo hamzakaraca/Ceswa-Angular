@@ -1,6 +1,7 @@
 <div>
     <tr  *ngFor="let comment of comments">{{comment.content}} 
-        <button >Delete</button>
+        
+        <button  (click)="setCurrentCommentId(comment.id)" (click)="deleteById()" >Delete</button>
     </tr>
     
 </div>

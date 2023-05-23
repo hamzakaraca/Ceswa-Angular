@@ -9,11 +9,15 @@ import { CommentService } from 'src/app/services/comment.service';
   styleUrls: ['./comment.component.css'],
 })
 export class CommentComponent implements OnInit {
-  id:number
+  id: number;
+  
   ngOnInit(): void {
     this.getComment();
   }
-  constructor(public commentService: CommentService,private authService:AuthService) {}
+  constructor(
+    public commentService: CommentService,
+    private authService: AuthService
+  ) {}
   comments: CommentModel[];
 
   getComment() {
@@ -22,9 +26,18 @@ export class CommentComponent implements OnInit {
       (err) => null
     );
   }
-  
-  deleteByYourSelf(){
-    this.commentService.deleteCommentByYourself(id)
-    
+
+  setCurrentCommentId(id: number) {
+    this.id = id;
+    console.log(this.id);
   }
+  async deleteByYourSelf() {
+    await this.commentService.deleteCommentByYourself(this.id);
+  }
+
+  deleteById() {
+    this.commentService.deleteById(this.id);
+  }
+
+  
 }

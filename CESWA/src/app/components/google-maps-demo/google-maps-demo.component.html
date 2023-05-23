@@ -1,0 +1,26 @@
+<input #mapSearchField class="my-map-search" type="text" />
+<google-map
+  width="100%"
+  [center]="initialCoordinates"
+  [options]="mapConfigurations"
+></google-map>
+<!-- <div>
+    <label>Enter address</label>
+    <input
+      type="text"
+      class="my-search-box"
+      (keydown.enter)="$event.preventDefault()"
+      placeholder="Search Location"
+      type="text"
+      #search
+    />
+  </div>
+  
+  <google-map
+    #myGoogleMap
+    height="500px"
+    width="100%"
+    [zoom]="zoom"
+    [center]="center"
+    [options]="options"
+  ></google-map> -->

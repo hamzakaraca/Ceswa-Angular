@@ -63,9 +63,9 @@ export class CommentService {
   }
 
   async deleteCommentByYourself(id:number){
-    let newPath= this.apiUrl + "DeleteCommentByYourself"
-    let observable=this.httpClient.post(newPath,id)
-    await  firstValueFrom(observable)
+    let newPath= this.apiUrl + "DeleteCommentByYourself?id="+id
+    let observable=this.httpClient.post<ResponseModel>(newPath,id)
+    await firstValueFrom(observable).then(response=>this.toastrService.success(response.message)).catch(err=>console.log(err))
   }
 
   getByCompanyId(companyId: number) {

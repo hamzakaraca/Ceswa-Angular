@@ -13,6 +13,7 @@ import { CorporateRegisterComponent } from './components/corporate-register/corp
 import { AbcGuard } from './components/guards/abc.guard';
 import { CommentAddComponent } from './components/comment-add/comment-add.component';
 import { UserimageComponent } from './components/userimage/userimage.component';
+import { UserComponent } from './components/user/user.component';
 
 ;
 
@@ -27,7 +28,8 @@ const routes: Routes = [
   {path:"user/info",component:UserinformationComponent,canActivate:[LoginGuard]},
   {path:"user/change-password",component:ChangePasswordComponent,canActivate:[LoginGuard]},
   {path:"admin",component:AdminComponent,canActivate:[LoginGuard,AdminGuard]},
-  {path:"userimage",component:UserimageComponent}
+  {path:"userimage",component:UserimageComponent},
+  {path:"users",component:UserComponent,canActivate:[LoginGuard,AdminGuard]}
 ];
 
 @NgModule({

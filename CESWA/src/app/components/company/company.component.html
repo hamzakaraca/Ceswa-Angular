@@ -24,12 +24,13 @@
             *ngFor="let company of companies$ | async | showbycompanytype:'Terzi'"
           >
               <div class="btn-group dropend">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" (click)="getCommentByCompanyId(company.id)">
+                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" (click)="getCommentByCompanyId(company.id)" (click)="setData(company.location)">
                   {{ company.companyName }}
                 </button>
                 <ul class="dropdown-menu">
                   <li *ngFor="let commentModel of commentModels |  showbycompanyid:company.id" >
                       {{commentModel.content}}
+                      <app-comment-delete [userIdToComment]="commentModel.userId" [id]="commentModel.id"></app-comment-delete>
                   </li>
                   <li *ngIf="!commentModels">{{commentNull}}</li>
                   <app-comment-add [companyId]="company.id"></app-comment-add>
@@ -72,6 +73,7 @@
             <ul class="dropdown-menu">
               <li *ngFor="let commentModel of commentModels |  showbycompanyid:company.id" >
                   {{commentModel.content}}
+                  <app-comment-delete [id]="commentModel.id"></app-comment-delete>
               </li>
               <li *ngIf="!commentModels">{{commentNull}}</li>
               <app-comment-add [companyId]="company.id"></app-comment-add>

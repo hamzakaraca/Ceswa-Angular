@@ -1,6 +1,6 @@
 
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <nav class="navbar bg-primary" data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">CESWA</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,7 +15,7 @@
       <button type="button" routerLink="corporate/register"> Kurumsal Kayıt</button>
   </div>
     <div *ngIf="ulogin!=true" class="nav-item">
-      <button  routerLink="login" class="btn btn-outline-success">Giriş</button>
+      <button  routerLink="login" class="btn btn-outline-danger">Giriş</button>
     </div>
     <div *ngIf="ulogin==true" class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,10 +26,6 @@
         <li><a class="dropdown-item" routerLink="user/change-password" >Şifre Değiştirme</a></li>
         <li><a class="dropdown-item" type="button" (click)="logOut()" >Çıkış Yap</a></li>
       </ul>
-      </div>
-      <!-- <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success"  type="submit">Search</button>
-      </form> -->
+      </div>  
     </div>
   </nav>

@@ -24,6 +24,12 @@ import { ShowbycompanyidPipe } from './components/pipes/showbycompanyid.pipe';
 import { ChangePasswordComponent } from './components/change-password/change-password.component';
 import { UserimageComponent } from './components/userimage/userimage.component';
 import { CorporateRegisterComponent } from './components/corporate-register/corporate-register.component';
+import { CommentDeleteComponent } from './components/comment-delete/comment-delete.component';
+import { UserComponent } from './components/user/user.component';
+import { UserDeleteComponent } from './components/user-delete/user-delete.component';
+import { GoogleMapsDemoModule } from './components/google-maps-demo/google-maps-demo.module';
+
+
 
 
 
@@ -45,8 +51,10 @@ import { CorporateRegisterComponent } from './components/corporate-register/corp
      ShowbycompanyidPipe,
      ChangePasswordComponent,
      UserimageComponent,
-     CorporateRegisterComponent
-    
+     CorporateRegisterComponent,
+     CommentDeleteComponent,
+     UserComponent,
+     UserDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,6 +69,7 @@ import { CorporateRegisterComponent } from './components/corporate-register/corp
       
     }),
     BrowserAnimationsModule,
+    GoogleMapsDemoModule
   ],
   providers: [
     {
