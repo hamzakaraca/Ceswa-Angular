@@ -1,0 +1,11 @@
+<div id="body">
+<ul id="modal" class="list-group">
+  <li id="modal-body" *ngFor="let company of companies$ | async" class="list-group-item">
+    {{ company.companyName }}
+    <button (click)="delete(company)" type="button" class="btn btn-danger">
+      Şirketi Sil
+    </button>
+    <app-company-update [currentCompany]="company"></app-company-update>
+  </li>
+</ul>
+</div>

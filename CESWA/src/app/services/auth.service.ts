@@ -66,9 +66,33 @@ export class AuthService {
     return userId;
   }
 
+
   loggedIn() {
     let token = this.getToken;
+    if (this.jwtHelperService.isTokenExpired(token)) {
+      localStorage.removeItem('token');
+    }
     return !this.jwtHelperService.isTokenExpired(token);
+  }
+
+  isCorporateAdmin() {
+    if (!this.loggedIn()) return false;
+
+    let decodedToken = this.getDecodedToken;
+
+    let roleString = Object.keys(decodedToken).filter((t) =>
+      t.endsWith('/role')
+    )[0];
+
+    if (roleString)
+      if (typeof decodedToken[roleString] !== typeof '') {
+        for (let i = 0; i < decodedToken[roleString].length; i++)
+          if (decodedToken[roleString][i] === 'corporate.admin') return true;
+      } else {
+        if (decodedToken[roleString] === 'corporate.admin') return true;
+      }
+
+    return false;
   }
 
   isAdmin() {

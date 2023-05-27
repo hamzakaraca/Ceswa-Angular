@@ -50,8 +50,19 @@ export class GoogleMapsDemoComponent implements AfterViewInit {
       });
       this.map.fitBounds(bounds);
     });
+
+  }
+  center: google.maps.LatLngLiteral = {lat: 37.73907899001086, lng: 29.099799498299713};
+  zoom = 15;
+  markerOptions: google.maps.MarkerOptions = {draggable: true,crossOnDrag:true,visible:true};
+  markerPositions: google.maps.LatLngLiteral[] = [];
+
+  addMarker(event: google.maps.MapMouseEvent) {
+    
+    this.markerPositions.push(event.latLng.toJSON());
   }
 
+  
   // title = 'angular-google-map-search';
 
   // @ViewChild('search')

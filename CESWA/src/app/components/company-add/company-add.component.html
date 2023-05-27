@@ -1,0 +1,45 @@
+<div [formGroup]="addForm" class="row g-3 align-items-center">
+  <div class="col-auto">
+    <label for="inputPassword6" class="col-form-label">Şirket Adı</label>
+  </div>
+  <div class="col-auto">
+    <input
+      formControlName="companyName"
+      type="text"
+      id="inputPassword6"
+      class="form-control"
+      aria-labelledby="passwordHelpInline"
+    />
+  </div>
+
+  <div class="col-auto">
+    <label for="inputPassword6" class="col-form-label">Lokasyon</label>
+  </div>
+  <div class="col-auto">
+    <input
+      formControlName="location"
+      type="text"
+      id="inputPassword6"
+      class="form-control"
+      aria-labelledby="passwordHelpInline"
+    />
+  </div>
+
+  <div class="col-auto">
+    <label for="inputPassword6" class="col-form-label">Şirket Tipi</label>
+  </div>
+  <select
+    formControlName="companyType"
+    class="form-control"
+    aria-label="Default select example"
+  >
+    <option selected>Şirket Tipini Seçiniz</option>
+    <option value="Berber">Berber</option>
+    <option value="Terzi">Terzi</option>
+    <option value="Halısaha">Halısaha</option>
+  </select>
+
+  <button (click)="addCompany()" type="button" class="btn btn-primary">
+    Kayıt et
+  </button>
+</div>

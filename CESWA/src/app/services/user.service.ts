@@ -71,17 +71,15 @@ export class UserService {
     let newPath=this.apiUrl+"DeleteImage?id="+id
     let observable = this.httpClient.post<ResponseModel>(newPath,id)
     await firstValueFrom(observable).then(response=>this.toastrService.success(response.message)).catch(error=>this.toastrService.error(error.message));
-    
+    window.location.reload();
   }
 
   async uploadImage(addUserImageDto:AddUserImageDto){
-    debugger;
     let newPath=this.apiUrl+"UpdateImage"
-    
     const formData = new FormData();
     Object.keys(addUserImageDto).forEach(field => formData.append(field, addUserImageDto[field]));
-
     let observable=this.httpClient.post<ResponseModel>(newPath,formData)
     await firstValueFrom(observable).then(response=>this.toastrService.success(response.message)).catch(error=>this.toastrService.error(error.message))
+    window.location.reload();
   }
 }

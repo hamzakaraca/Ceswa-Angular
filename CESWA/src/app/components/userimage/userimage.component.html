@@ -1,11 +1,12 @@
 <div class="card" style="width: 18rem" *ngIf="imageUrl">
+  <label for="div">Resim</label>
   <img [src]="imageUrl" class="card-img-top" alt="...">
   <div class="input-group mb-3">
     <input type="file" class="form-control" id="inputGroupFile" (change)="onFileSelected($event)">
-    <label  (click)="upload()" class="input-group-text" for="inputGroupFile">Upload</label>
+    <label  (click)="upload()" class="input-group-text" for="inputGroupFile">Resmi Yükle</label>
   </div>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button (click)="deleteImage()" class="btn btn-danger" type="button">Delete</button>
+    <button (click)="deleteImage()" class="btn btn-danger" type="button">Resmi Sil</button>
   </div>
  
 </div>

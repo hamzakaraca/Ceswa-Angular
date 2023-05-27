@@ -28,6 +28,10 @@ import { CommentDeleteComponent } from './components/comment-delete/comment-dele
 import { UserComponent } from './components/user/user.component';
 import { UserDeleteComponent } from './components/user-delete/user-delete.component';
 import { GoogleMapsDemoModule } from './components/google-maps-demo/google-maps-demo.module';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { CompanyAddComponent } from './components/company-add/company-add.component';
+import { CompanyUpdateComponent } from './components/company-update/company-update.component';
+import { CompanyListComponent } from './components/company-list/company-list.component';
 
 
 
@@ -55,6 +59,10 @@ import { GoogleMapsDemoModule } from './components/google-maps-demo/google-maps-
      CommentDeleteComponent,
      UserComponent,
      UserDeleteComponent,
+     HomePageComponent,
+     CompanyAddComponent,
+     CompanyUpdateComponent,
+     CompanyListComponent,
   ],
   imports: [
     BrowserModule,

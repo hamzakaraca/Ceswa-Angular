@@ -1,31 +1,68 @@
-
-
-  <nav class="navbar bg-primary" data-bs-theme="dark">
+<div class="navbar123">
+  <nav class="navbar bg" data-bs-theme="dark">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">CESWA</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand" href="home">CESWA</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent"></div>
+      <div *ngIf="ulogin == true">
+        <div *ngIf="isCorporateAdmin()">
+          <button type="button" class="btn btn-light" routerLink="company/add">
+            Şirket Ekleme Sayfası
+          </button>
+        </div>
       </div>
-      <div *ngIf="ulogin!=true">
-        <button type="button" routerLink="register"> Bireysel Kayıt</button>
-    </div>
-    <div *ngIf="ulogin!=true">
-      <button type="button" routerLink="corporate/register"> Kurumsal Kayıt</button>
-  </div>
-    <div *ngIf="ulogin!=true" class="nav-item">
-      <button  routerLink="login" class="btn btn-outline-danger">Giriş</button>
-    </div>
-    <div *ngIf="ulogin==true" class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-        Hesabım
-      </button>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" routerLink="user/info" >Hesap Bilgilerim</a></li>
-        <li><a class="dropdown-item" routerLink="user/change-password" >Şifre Değiştirme</a></li>
-        <li><a class="dropdown-item" type="button" (click)="logOut()" >Çıkış Yap</a></li>
-      </ul>
-      </div>  
+      <div *ngIf="ulogin != true">
+        <button type="button" class="btn btn-success" routerLink="register">
+          Bireysel Kayıt
+        </button>
+      </div>
+      <div *ngIf="ulogin != true">
+        <button
+          type="button"
+          class="btn btn-success"
+          routerLink="corporate/register"
+        >
+          Kurumsal Kayıt
+        </button>
+      </div>
+      <div *ngIf="ulogin != true" class="nav-item">
+        <button routerLink="login" class="btn btn-success">Giriş</button>
+      </div>
+      <div *ngIf="ulogin == true" class="dropdown">
+        <button
+          class="btn btn-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Hesabım
+        </button>
+        <ul class="dropdown-menu">
+          <li>
+            <a class="dropdown-item" routerLink="user/info">Hesap Bilgilerim</a>
+          </li>
+          <li>
+            <a class="dropdown-item" routerLink="user/change-password"
+              >Şifre Değiştirme</a
+            >
+          </li>
+          <li>
+            <a class="dropdown-item" type="button" (click)="logOut()"
+              >Çıkış Yap</a
+            >
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
+</div>

@@ -1,0 +1,24 @@
+.admin {
+    border: 1px solid #000;
+    border-radius: 5px;
+    background-color: aliceblue;
+  }
+
+  
+  
+  .admin.ng-star-inserted {
+    display: block; /* isAdmin() fonksiyonu true döndürdüğünde görünecek */
+  }
+  
+  .admin p {
+    margin: 0;
+  }
+  
+  .admin label {
+    font-weight: bold;
+  }
+  
+  .admin button {
+    margin-right: 10px;
+  }
+  

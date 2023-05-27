@@ -10,10 +10,15 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UserComponent implements OnInit {
   users: UserModel[];
+  status:boolean
 
   constructor(private userService: UserService) {}
   ngOnInit(): void {
     this.getAll();
+  }
+
+  setStatus(){
+    
   }
 
   getAll() {

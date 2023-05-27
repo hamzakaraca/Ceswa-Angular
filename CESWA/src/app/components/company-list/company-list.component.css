@@ -1,0 +1,35 @@
+#body {
+    padding: 20px;
+  }
+  
+  .list-group {
+    margin-bottom: 20px;
+  }
+  
+  .list-group-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    width: 50%; /* Genişlik ayarı */
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .app-company-update {
+    margin-left: 10px;
+  }

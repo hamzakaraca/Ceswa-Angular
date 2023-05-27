@@ -1,0 +1,26 @@
+.card {
+    width: 30rem;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    margin-bottom: 20px;
+  }
+  
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  .card-text {
+    margin-top: 0.5rem;
+  }
+  
+  .app-userimage {
+    margin-top: 1rem;
+  }

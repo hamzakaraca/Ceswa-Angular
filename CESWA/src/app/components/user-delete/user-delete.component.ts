@@ -11,8 +11,8 @@ export class UserDeleteComponent {
   constructor(private userService: UserService) {}
 
   async delete() {
-    console.log(this.id);
+    
     await this.userService.deleteById(this.id);
-    console.log(this.id);
+    window.location.reload();
   }
 }

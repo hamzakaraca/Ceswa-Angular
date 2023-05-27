@@ -1,6 +1,8 @@
 <ol class="list-group list-group-numbered">
-    <li *ngFor="let user of users" class="list-group-item">{{user.email}}
+    <li *ngFor="let user of users" class="list-group-item" >{{user.email}}
+        {{user.status}}
         <app-userimage [imagePath]="user.imagePath"></app-userimage>
         <app-user-delete [id]="user.id" ></app-user-delete>
     </li>
+    
   </ol>

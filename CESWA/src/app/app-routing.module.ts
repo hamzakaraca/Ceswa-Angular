@@ -14,13 +14,18 @@ import { AbcGuard } from './components/guards/abc.guard';
 import { CommentAddComponent } from './components/comment-add/comment-add.component';
 import { UserimageComponent } from './components/userimage/userimage.component';
 import { UserComponent } from './components/user/user.component';
+import { GoogleMapsDemoComponent } from './components/google-maps-demo/google-maps-demo.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { CompanyAddComponent } from './components/company-add/company-add.component';
+import { CompanyListComponent } from './components/company-list/company-list.component';
+import { CompanyUpdateComponent } from './components/company-update/company-update.component';
 
 ;
 
 const routes: Routes = [
-  
-  {path:"home",component:CommentComponent,canActivate:[LoginGuard]},
-  {path:"comments",component:CommentComponent,canActivate:[LoginGuard]},
+  {path:"",component:HomePageComponent,canActivate:[LoginGuard]},
+  {path:"home",component:HomePageComponent,canActivate:[LoginGuard]},
+  {path:"comments",component:CommentComponent,canActivate:[LoginGuard,AdminGuard]},
   {path:"comments/add",component:CommentAddComponent,canActivate:[LoginGuard]},
   {path:"login",component:LoginComponent, canActivate:[AbcGuard]},
   {path:"register",component:IndividualRegisterComponent},
@@ -29,7 +34,14 @@ const routes: Routes = [
   {path:"user/change-password",component:ChangePasswordComponent,canActivate:[LoginGuard]},
   {path:"admin",component:AdminComponent,canActivate:[LoginGuard,AdminGuard]},
   {path:"userimage",component:UserimageComponent},
-  {path:"users",component:UserComponent,canActivate:[LoginGuard,AdminGuard]}
+  {path:"users",component:UserComponent,canActivate:[LoginGuard,AdminGuard]},
+  {path:"home/users",component:UserComponent,canActivate:[LoginGuard,AdminGuard]},
+  {path:"home/comments",component:CommentComponent,canActivate:[LoginGuard,AdminGuard]},
+  {path:"company/add",component:CompanyAddComponent,canActivate:[LoginGuard]},
+  {path:"company/list",component:CompanyListComponent,canActivate:[LoginGuard,AdminGuard]},
+  {path:"company/list/company/update",component:CompanyUpdateComponent,canActivate:[LoginGuard]},
+  {path:"home/company/list",component:CompanyListComponent,canActivate:[LoginGuard,AdminGuard]},
+  {path:"home/company/list/company/update",component:CompanyUpdateComponent,canActivate:[LoginGuard]},
 ];
 
 @NgModule({

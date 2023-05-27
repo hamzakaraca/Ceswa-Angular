@@ -15,6 +15,7 @@ export class UserimageComponent implements OnInit {
   @Input() imagePath: string;
   imageUrl: string;
   file: File;
+  status:boolean
   currentUser: UserModel;
   constructor(
     private fileService: FileService,

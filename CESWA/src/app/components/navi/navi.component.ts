@@ -8,9 +8,11 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NaviComponent implements OnInit {
   ulogin = false;
+  uClaim:string;
   constructor(private authService: AuthService) {}
   ngOnInit(): void {
     this.islogin();
+    
   }
 
   islogin() {
@@ -20,6 +22,11 @@ export class NaviComponent implements OnInit {
   }
   logOut() {
     this.authService.logout();
+  }
+
+  isCorporateAdmin(){
+    
+    return this.authService.isCorporateAdmin();
   }
 
   isAdmin() {

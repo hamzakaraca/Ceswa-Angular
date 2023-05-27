@@ -1,7 +1,16 @@
-<div>
-    <tr  *ngFor="let comment of comments">{{comment.content}} 
-        
-        <button  (click)="setCurrentCommentId(comment.id)" (click)="deleteById()" >Delete</button>
-    </tr>
-    
+<div class="AllComments">
+  <tr class="comments" *ngFor="let comment of comments">
+    {{
+      comment.content
+    }}
+    <button
+      (click)="setCurrentCommentId(comment.id)"
+      (click)="deleteById()"
+      type="button"
+      class="btn btn-warning"
+    >
+      Delete
+    </button>
+    <hr />
+  </tr>
 </div>

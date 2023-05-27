@@ -1,0 +1,16 @@
+.AllComments{
+    width: 100%;
+    border: 1px solid #000;
+    border-radius: 1px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: column;
+    text-align: center;
+}
+.comments{
+    width: 100%;
+    margin-top: 10px;
+}

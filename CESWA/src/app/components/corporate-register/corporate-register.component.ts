@@ -24,6 +24,7 @@ export class CorporateRegisterComponent implements OnInit {
       companyName: ['', Validators.required],
       password: ['', Validators.required],
       email: ['', Validators.required],
+      imagePath:["",]
     });
   }
   corporateRegister() {

@@ -1,4 +1,6 @@
-<div *ngIf="isAdmin()"><p >
-    <button routerLink="comments">Yorumlar Listesi</button>
-    <button routerLink="users">Kullanıcıların Listesi</button>
+<div class="admin" *ngIf="isAdmin()"><p >
+    <label for="">SAYIN ADMİN HOŞGELDİNİZ</label>
+    <button routerLink="comments" type="button" class="btn btn-secondary">Yorumlar Listesi</button>
+    <button routerLink="users" type="button" class="btn btn-secondary">Kullanıcıların Listesi</button>
+    <button routerLink="company/list" type="button" class="btn btn-secondary">Şirketlerin Listesi</button>
 </p></div>

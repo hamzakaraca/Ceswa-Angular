@@ -1,0 +1,89 @@
+<button
+  type="button"
+  class="btn btn-primary"
+  data-bs-toggle="modal"
+  data-bs-target="#exampleModal"
+  [attr.data-bs-target]="'#exampleModal' + currentCompany.id"
+>
+  Şirket Bilgilerini Güncelle
+</button>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal{{ currentCompany.id }}"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">
+          Şirket Güncelleme
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div id="modal" class="modal-body">
+        <div [formGroup]="companyUpdateForm" class="row g-3 align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label"
+              >Şirket Adı</label
+            >
+          </div>
+          <div class="col-auto">
+            <input
+              formControlName="companyName"
+              type="text"
+              id="inputPassword6"
+              class="form-control"
+              aria-labelledby="passwordHelpInline"
+            />
+          </div>
+
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">Lokasyon</label>
+          </div>
+          <div class="col-auto">
+            <input
+              formControlName="location"
+              type="text"
+              id="inputPassword6"
+              class="form-control"
+              aria-labelledby="passwordHelpInline"
+            />
+          </div>
+
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label"
+              >Şirket Tipi</label
+            >
+          </div>
+          <select
+            formControlName="companyType"
+            class="form-control"
+            aria-label="Default select example" 
+          >
+            <option selected>Şirket Tipini Seçiniz</option>
+            <option value="Berber">Berber</option>
+            <option value="Terzi">Terzi</option>
+            <option value="Halısaha">Halısaha</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Kapat
+        </button>
+        <button type="button" (click)="update()" class="btn btn-primary">
+          Kayıt et
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

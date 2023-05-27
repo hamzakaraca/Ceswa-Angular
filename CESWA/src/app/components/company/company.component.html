@@ -21,22 +21,39 @@
         <ul class="list-group">
           <li
             class="list-group-item"
-            *ngFor="let company of companies$ | async | showbycompanytype:'Terzi'"
+            *ngFor="
+              let company of companies$ | async | showbycompanytype : 'TERZİ'
+            "
           >
-              <div class="btn-group dropend">
-                <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" (click)="getCommentByCompanyId(company.id)" (click)="setData(company.location)">
-                  {{ company.companyName }}
-                </button>
-                <ul class="dropdown-menu">
-                  <li *ngFor="let commentModel of commentModels |  showbycompanyid:company.id" >
-                      {{commentModel.content}}
-                      <app-comment-delete [userIdToComment]="commentModel.userId" [id]="commentModel.id"></app-comment-delete>
-                  </li>
-                  <li *ngIf="!commentModels">{{commentNull}}</li>
-                  <app-comment-add [companyId]="company.id"></app-comment-add>
-                </ul>
-              </div>
-            
+            <div class="btn-group dropend">
+              <button
+                type="button"
+                class="btn btn-secondary dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                (click)="getCommentByCompanyId(company.id)"
+                (click)="setData(company.location)"
+              >
+                {{ company.companyName }}
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  *ngFor="
+                    let commentModel of commentModels
+                      | showbycompanyid : company.id
+                  "
+                >
+                  {{ commentModel.content }}
+                  <app-comment-delete
+                    [userIdToComment]="commentModel.userId"
+                    [id]="commentModel.id"
+                  ></app-comment-delete>
+                </li>
+                <li *ngIf="!commentModels">{{ commentNull }}</li>
+                <app-comment-add [companyId]="company.id"></app-comment-add>
+              </ul>
+
+            </div>
           </li>
         </ul>
       </div>
@@ -64,22 +81,96 @@
         <ul class="list-group">
           <li
             class="list-group-item"
-            *ngFor="let company of companies$ | async | showHairdressers:'Berber'"
+            *ngFor="
+              let company of companies$ | async | showHairdressers : 'BERBER'
+            "
           >
-          <div class="btn-group dropend">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" (click)="getCommentByCompanyId(company.id)">
-              {{ company.companyName }}
-            </button>
-            <ul class="dropdown-menu">
-              <li *ngFor="let commentModel of commentModels |  showbycompanyid:company.id" >
-                  {{commentModel.content}}
-                  <app-comment-delete [id]="commentModel.id"></app-comment-delete>
-              </li>
-              <li *ngIf="!commentModels">{{commentNull}}</li>
-              <app-comment-add [companyId]="company.id"></app-comment-add>
-            </ul>
-            
-          </div>
+            <div class="btn-group dropend">
+              <button
+                type="button"
+                class="btn btn-secondary dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                (click)="getCommentByCompanyId(company.id)"
+                (click)="setData(company.location)"
+              >
+                {{ company.companyName }}
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  *ngFor="
+                    let commentModel of commentModels
+                      | showbycompanyid : company.id
+                  "
+                >
+                  {{ commentModel.content }}
+                  <app-comment-delete
+                    [id]="commentModel.id"
+                  ></app-comment-delete>
+                </li>
+                <li *ngIf="!commentModels">{{ commentNull }}</li>
+                <app-comment-add [companyId]="company.id"></app-comment-add>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button
+        class="accordion-button"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#collapseTree"
+        aria-expanded="true"
+        aria-controls="collapseTree"
+      >
+        Halısahalar
+      </button>
+    </h2>
+    <div
+      id="collapseTree"
+      class="accordion-collapse collapse show"
+      data-bs-parent="#accordionExample"
+    >
+      <div class="accordion-body">
+        <ul class="list-group">
+          <li
+            class="list-group-item"
+            *ngFor="
+              let company of companies$ | async | showbycompanytype : 'HALISAHA'
+            "
+          >
+            <div class="btn-group dropend">
+              <button
+                type="button"
+                class="btn btn-secondary dropdown-toggle"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                (click)="getCommentByCompanyId(company.id)"
+                (click)="setData(company.location)"
+              >
+                {{ company.companyName }}
+              </button>
+              <ul class="dropdown-menu">
+                <li
+                  *ngFor="
+                    let commentModel of commentModels
+                      | showbycompanyid : company.id
+                  "
+                >
+                  {{ commentModel.content }}
+                  <app-comment-delete
+                    [userIdToComment]="commentModel.userId"
+                    [id]="commentModel.id"
+                  ></app-comment-delete>
+                </li>
+                <li *ngIf="!commentModels">{{ commentNull }}</li>
+                <app-comment-add [companyId]="company.id"></app-comment-add>
+              </ul>
+            </div>
           </li>
         </ul>
       </div>

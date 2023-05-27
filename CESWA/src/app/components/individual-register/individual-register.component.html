@@ -1,41 +1,58 @@
-<div id="main" >
-    <div id="register"><body class="text-center">
-
+<div id="main">
+  <div id="register">
+    <body class="text-center">
       <main class="form-signin">
         <form [formGroup]="registerForm">
           <h1 class="h3 mb-3 fw-normal">Lütfen Kayıt Olun</h1>
 
           <div class="form-floating">
-              <input formControlName="firstName" type="text" class="form-control" id="floatingInputFirstName" placeholder="Lütfen Adınızı Giriniz!">
-              <label for="floatingInputFirstName">İsim</label>
-            </div>
+            <input
+              formControlName="firstName"
+              type="text"
+              class="form-control"
+              id="floatingInputFirstName"
+              placeholder="Lütfen Adınızı Giriniz!"
+            />
+            <label for="floatingInputFirstName">İsim</label>
+          </div>
 
           <div class="form-floating">
-              <input formControlName="lastName" type="text" class="form-control" id="floatingInputLastName" placeholder="Lütfen Soyadınızı Giriniz!">
-              <label for="floatingInputLastName">Soyisim</label>
-            </div>
+            <input
+              formControlName="lastName"
+              type="text"
+              class="form-control"
+              id="floatingInputLastName"
+              placeholder="Lütfen Soyadınızı Giriniz!"
+            />
+            <label for="floatingInputLastName">Soyisim</label>
+          </div>
 
           <div class="form-floating">
-            <input formControlName="email" type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
             <label for="floatingInput">Email adres</label>
           </div>
           <div class="form-floating">
-            <input formControlName="password"  type="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+            />
             <label for="floatingPassword">Şifre</label>
           </div>
 
-          <div class="form-floating">
-            <input formControlName="imagePath"  type="text" class="form-control" id="floatingPassword2" placeholder="Password">
-            <label for="floatingPassword">Resim</label>
-          </div>
-
-          <button class="w-100 btn btn-lg btn-primary" (click)="register()">Kayıt Ol</button>
+          <button class="w-100 btn btn-lg btn-primary" (click)="register()">
+            Kayıt Ol
+          </button>
         </form>
       </main>
-
-
-
     </body>
   </div>
-
-  </div>
+</div>
